@@ -8,9 +8,12 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+import static racingcar.util.message.ErrorMessage.CAR_DUPLICATE;
+
 public class Input {
     private static final String FORMAT_PATTERN = "(([a-zA-Z0-9ㄱ-ㅎㅏ-ㅣ가-힣]+)(,)?)+";
     private static final Scanner scanner = new Scanner(System.in);
+    private static final String SPLIT = ",";
 
     public static List<Name> inputNamesUi() {
         Output.printInputNamesUi();
@@ -31,12 +34,12 @@ public class Input {
 
     private static void validateDuplicated(List<Name> names) {
         if (names.size() != names.stream().distinct().count()) {
-            throw new IllegalArgumentException("중복된 이름이 있습니다.");
+            throw new IllegalArgumentException(CAR_DUPLICATE.getMessage());
         }
     }
 
     private static List<String> splitInput(String input) {
-        return Arrays.stream(input.split(","))
+        return Arrays.stream(input.split(SPLIT))
                 .collect(Collectors.toList());
     }
 

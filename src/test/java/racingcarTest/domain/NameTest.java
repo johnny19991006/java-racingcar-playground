@@ -24,7 +24,7 @@ public class NameTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @DisplayName("from 메소드에 한글자 미만 혹은 다섯글자 초과의 문자열을 전달하면 예외가 발생 한다.")
+    @DisplayName("from 메소드에 다섯글자 초과의 문자열을 전달하면 예외가 발생 한다.")
     @ParameterizedTest
     @ValueSource(strings = {"", "abcdef"})
     void fromWithInvalidStringLength(String input) {

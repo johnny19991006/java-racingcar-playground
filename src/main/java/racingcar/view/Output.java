@@ -32,10 +32,10 @@ public class Output {
     }
 
     public static void printRaceResultUi(List<Name> names) {
-        System.out.printf("%s" + OUTPUT_WINNING_CAR.getMessage(), names.stream()
-                .map(Name::toString)
-                .collect(Collectors.joining(NAME_DELIMITER))
-        );
+        String joinedNames = names.stream()
+                .map(n -> String.valueOf(n))
+                .collect(Collectors.joining(NAME_DELIMITER));
+        System.out.printf("%s" + OUTPUT_WINNING_CAR.getMessage(), joinedNames);
     }
 
     public static void printErrorUi(Exception exception) {

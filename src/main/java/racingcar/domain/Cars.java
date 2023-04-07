@@ -18,7 +18,7 @@ public class Cars {
 
     public static Cars from(List<Name> names) {
         List<Car> cars = names.stream()
-                .map((name) -> Car.info(name.toString(), DEFAULT_POSITION))
+                .map((name) -> Car.info(String.valueOf(name), DEFAULT_POSITION))
                 .collect(Collectors.toList());
 
         return new Cars(cars);
@@ -37,7 +37,7 @@ public class Cars {
     }
 
     public void moveAll(RandomGenerator randomGenerator) {
-        cars.forEach((car) -> car.move(
+        cars.forEach(car -> car.move(
                 randomGenerator.generateNumber())
         );
     }
