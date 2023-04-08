@@ -31,7 +31,7 @@ public class StringValidatorTest {
     @ParameterizedTest
     @ValueSource(strings = {"abcdef"})
     void validateLengthWithInvalidLength(String input) {
-        assertThatThrownBy(() -> StringValidator.validateLength(input,  5))
+        assertThatThrownBy(() -> StringValidator.validateLength(input, 5))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("문자열의 길이가 5이하가 아닙니다.");
     }
