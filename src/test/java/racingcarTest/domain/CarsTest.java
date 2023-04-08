@@ -16,9 +16,9 @@ public class CarsTest {
     @Test
     void add() {
         Cars cars = Cars.create();
-        cars.add(Car.info("car1", 0));
+        cars.add(Car.of("car1", 0));
 
-        assertThatThrownBy(() -> cars.add(Car.info("car1", 0)))
+        assertThatThrownBy(() -> cars.add(Car.of("car1", 0)))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -26,9 +26,9 @@ public class CarsTest {
     @Test
     void getWinnersNames() {
         Cars cars = Cars.create();
-        cars.add(Car.info("car1", 5));
-        cars.add(Car.info("car2", 3));
-        cars.add(Car.info("car3", 5));
+        cars.add(Car.of("car1", 5));
+        cars.add(Car.of("car2", 3));
+        cars.add(Car.of("car3", 5));
 
         assertThat(cars.getWinnersNames())
                 .containsExactly(Name.from("car3"), Name.from("car1"));
@@ -40,11 +40,11 @@ public class CarsTest {
         RandomGenerator randomGenerator = new RandomGenerator();
 
         Cars cars = Cars.create();
-        cars.add(Car.info("car1", 0));
-        cars.add(Car.info("car2", 0));
-        cars.add(Car.info("car3", 0));
-        cars.add(Car.info("car4", 0));
-        cars.add(Car.info("car5", 0));
+        cars.add(Car.of("car1", 0));
+        cars.add(Car.of("car2", 0));
+        cars.add(Car.of("car3", 0));
+        cars.add(Car.of("car4", 0));
+        cars.add(Car.of("car5", 0));
 
         for (int i = 0; i < 30; i++) {
             cars.moveAll(randomGenerator);

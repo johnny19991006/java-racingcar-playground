@@ -18,7 +18,7 @@ public class Cars {
 
     public static Cars from(List<Name> names) {
         List<Car> cars = names.stream()
-                .map((name) -> Car.info(String.valueOf(name), DEFAULT_POSITION))
+                .map((name) -> Car.of(String.valueOf(name), DEFAULT_POSITION))
                 .collect(Collectors.toList());
 
         return new Cars(cars);

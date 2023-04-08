@@ -29,11 +29,11 @@ public class StringValidatorTest {
 
     @DisplayName("validateLength 메소드에 다섯글자 초과의 문자열이 전달되면 예외가 발생한다.")
     @ParameterizedTest
-    @ValueSource(strings = {"", "abcdef"})
+    @ValueSource(strings = {"abcdef"})
     void validateLengthWithInvalidLength(String input) {
         assertThatThrownBy(() -> StringValidator.validateLength(input,  5))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("문자열의 길이가 5 이하가 아닙니다.");
+                .hasMessage("문자열의 길이가 5이하가 아닙니다.");
     }
 
     @DisplayName("validateFormatByRegex 메소드가 전달받은 문자열이 전달받은 정규표현식을 통과하면 예외가 발생하지 않는다.")

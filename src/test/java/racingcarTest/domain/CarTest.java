@@ -12,7 +12,7 @@ public class CarTest {
     @ParameterizedTest
     @ValueSource(ints = {4, 5, 6, 7, 8, 9})
     void move(int input) {
-        Car car = Car.info("car", 0);
+        Car car = Car.of("car", 0);
         assertThat(car.move(input)).isTrue();
     }
 
@@ -20,7 +20,7 @@ public class CarTest {
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3})
     void doNotMove(int input) {
-        Car car = Car.info("car", 0);
+        Car car = Car.of("car", 0);
         assertThat(car.move(input)).isFalse();
     }
 }
